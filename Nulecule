@@ -1,0 +1,22 @@
+--- 
+specversion: "0.0.2"
+
+id: helloflask-app
+metadata: 
+  name: helloflask-app
+  appversion: 0.0.1
+  description: Atomic app for deploying basic helloflask
+
+graph: 
+  - name: helloflask-app
+    params: 
+      - name: image
+        description: The container image for helloflask
+        default: tomaskral/helloflask
+    artifacts:
+      openshift:
+        - file://artifacts/openshift/helloflask-rc.yaml
+        - file://artifacts/openshift/helloflask-svc.yaml
+  - name: redis-centos7-atomicapp
+    source: docker://projectatomic/redis-centos7-atomicapp
+

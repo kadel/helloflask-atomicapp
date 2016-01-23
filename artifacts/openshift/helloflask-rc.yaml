@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: helloflask
+  labels:
+    name: helloflask
+spec:
+  replicas: 1
+  selector:
+    name: helloflask
+  template:
+    metadata:
+      labels:
+        name: helloflask
+    spec:
+      containers:
+        - name: helloflask
+          image: $image
+          ports:
+            - name: flaskserver
+              containerPort: 5000
+          imagePullPolicy: Always
