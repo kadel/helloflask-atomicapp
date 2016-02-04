@@ -20,3 +20,12 @@ spec:
             - name: flaskserver
               containerPort: 5000
           imagePullPolicy: Always
+          env:
+            - name: REDIS_MASTER_PORT_6379_TCP_ADDR
+              value: "$redis_master_host"
+            - name: REDIS_MASTER_PORT_6379_TCP_PORT
+              value: "$redis_master_port"
+            - name: REDIS_SLAVE_PORT_6379_TCP_ADDR
+              value: "$redis_slave_host"
+            - name: REDIS_SLAVE_PORT_6379_TCP_PORT
+              value: "$redis_slave_port"

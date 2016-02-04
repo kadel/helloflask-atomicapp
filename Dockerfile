@@ -1,4 +1,4 @@
-FROM projectatomic/atomicapp:0.4.0
+FROM projectatomic/atomicapp:0.4.1
 
 MAINTAINER Tomas Kral <tomas.kral@gmail.com>
 

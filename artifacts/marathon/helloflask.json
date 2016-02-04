@@ -1,0 +1,28 @@
+{
+  "id": "helloflask",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "network": "BRIDGE",
+      "image": "$image",
+      "portMappings": [
+        {
+          "containerPort": 5000,
+          "servicePort": $serviceport,
+          "hostPort": 0,
+          "protocol": "tcp"
+        }
+      ]
+    }
+  },
+  "env": {
+    "REDIS_MASTER_PORT_6379_TCP_ADDR": "$redis_master_host",
+    "REDIS_MASTER_PORT_6379_TCP_PORT": "$redis_master_port",
+    "REDIS_SLAVE_PORT_6379_TCP_ADDR": "$redis_slave_host",
+    "REDIS_SLAVE_PORT_6379_TCP_PORT": "$redis_slave_port"
+  },
+  "cpus": 0.1,
+  "mem": 256
+}
+
+

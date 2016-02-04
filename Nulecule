@@ -13,10 +13,28 @@ graph:
       - name: image
         description: The container image for helloflask
         default: tomaskral/helloflask
+      - name: redis_master_host
+        description: redis master host
+        default: redis-master
+      - name: redis_master_port
+        description: redis master port
+        default: 6379
+      - name: redis_slave_host
+        description: redis slave host
+        default: redis-slave
+      - name: redis_slave_port
+        description: redis slave port
+        default: 6379
+      - name: serviceport
+        description: port where application will be reachable
+        default: 80
+
     artifacts:
       openshift:
         - file://artifacts/openshift/helloflask-rc.yaml
         - file://artifacts/openshift/helloflask-svc.yaml
+      marathon:
+        - file://artifacts/marathon/helloflask.json
   - name: redis-centos7-atomicapp
-    source: docker://projectatomic/redis-centos7-atomicapp
+    source: docker://tomaskral/redis-centos7-atomicapp
 
